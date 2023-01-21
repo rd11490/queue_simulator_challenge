@@ -12,18 +12,18 @@ class Team:
         self.support1 = support1
         self.support2 = support2
 
-    def average_sr(self):
-        tank_sr = self.tank.get_tank_sr()
-        dps_sr1 = self.dps1.get_dps_sr()
-        dps_sr2 = self.dps2.get_dps_sr()
-        support_sr1 = self.support1.get_support_sr()
-        support_sr2 = self.support1.get_support_sr()
-        srs = [tank_sr, dps_sr1, dps_sr2, support_sr1, support_sr2]
+    def average_mmr(self):
+        tank_mmr = self.tank.get_tank_mmr()
+        dps_mmr1 = self.dps1.get_dps_mmr()
+        dps_mmr2 = self.dps2.get_dps_mmr()
+        support_mmr1 = self.support1.get_support_mmr()
+        support_mmr2 = self.support1.get_support_mmr()
+        mmrs = [tank_mmr, dps_mmr1, dps_mmr2, support_mmr1, support_mmr2]
         scales = [.3, .2, .15, .15, .2]
-        avg_sr = 0
-        for v, s in zip(srs, scales):
-            avg_sr += s * v
-        return avg_sr
+        avg_mmr = 0
+        for v, s in zip(mmrs, scales):
+            avg_mmr += s * v
+        return avg_mmr
 
 
 class Match:
@@ -44,9 +44,9 @@ class Match:
         return f'Active: {self.active}, Start: {self.start}, End: {self.end}, Time: {self.time_limit}'
 
     def sim_match(self):
-        t1_sr = self.team1.average_sr()
-        t2_sr = self.team2.average_sr()
-        m = (t2_sr - t1_sr) / 1000
+        t1_mmr = self.team1.average_mmr()
+        t2_mmr = self.team2.average_mmr()
+        m = (t2_mmr - t1_mmr) / 1000
         pt1 = 1 / (1 + 10 ** m)
         return pt1, random.random() <= pt1
 
@@ -61,12 +61,11 @@ class Match:
             self.active = False
             prob, win = self.sim_match()
             self.sim_result = {
-                'probability': prob,
-                'probability_diff': abs(prob - (1-prob)),
-                't1_win': win,
-                't1_sr': self.team1.average_sr(),
-                't2_sr': self.team2.average_sr(),
-                'sr_diff': abs(self.team1.average_sr()-self.team2.average_sr())
+                'Team 1 Estimated Probability To Win': prob,
+                'ABS Value Probability To Win Difference': abs(prob - (1-prob)),
+                'Team 1 Average MMR (weighted)': self.team1.average_mmr(),
+                'Team 2 Average MMR (weighted)': self.team2.average_mmr(),
+                'ABS MMR Difference': abs(self.team1.average_mmr() - self.team2.average_mmr())
             }
 
 

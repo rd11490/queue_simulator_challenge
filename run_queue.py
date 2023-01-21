@@ -83,7 +83,7 @@ def main():
         if clock.now() > (60 * 60 * 6):
             running = False
 
-    time_in_queue = [{'wait': p.time_in_queue(), 'roles': p.player.roles} for p in queue_stats]
+    time_in_queue = [{'Wait': p.time_in_queue(), 'Roles': p.player.roles} for p in queue_stats]
 
     results = []
     for m in servers.completed_matches:
