@@ -22,12 +22,12 @@ class Player:
 
     def __init__(self):
         self.id = uuid.uuid4()
-        self._base_mmr = np.random.normal(loc=2500, scale=500)
+        self._base_mmr = round_int(range_limit_sr(np.random.normal(loc=2500, scale=500)))
         low_range = self._base_mmr - self.ROLE_RANGE
         high_range = self._base_mmr + self.ROLE_RANGE
-        self._tank_mmr = np.random.randint(low_range, high_range)
-        self._dps_mmr = np.random.randint(low_range, high_range)
-        self._support_mmr = np.random.randint(low_range, high_range)
+        self._tank_mmr = round_int(range_limit_sr(np.random.randint(low_range, high_range)))
+        self._dps_mmr = round_int(range_limit_sr(np.random.randint(low_range, high_range)))
+        self._support_mmr = round_int(range_limit_sr(np.random.randint(low_range, high_range)))
         self.roles = random.choice(self.ROLE_COMBOS)
 
     def __str__(self):
