@@ -3,7 +3,7 @@ There are constantly complaints about how bad match-making is in Overwatch. I wa
 see what a baseline matchmaker would look like, then make continuous improvements. The goal is to get the lowest score possible.
 
 
-###Assumptions:
+## Assumptions:
 - Every tick of the clock is equivalent to 1 second
 
 - The worst player on a team has more impact than the best player on the team. This is modeled by using a weighted average
