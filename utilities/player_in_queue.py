@@ -10,13 +10,13 @@ class PlayerInQueue:
         self.ignore = False
 
     def __str__(self):
-        return f'Player: {self.player.id} Time in Queue: {self.time_in_queue()} (Start: {self.queue_start_time}, End: {self.queue_end_time})'
+        return f'Player In Queue: {self.player.id} Time in Queue: {self.time_in_queue()} (Start: {self.queue_start_time}, End: {self.queue_end_time})'
 
     def set_ignore(self):
         self.ignore = True
 
     def get_ignore(self):
-        return self.ignore()
+        return self.ignore
 
     def dequeue(self):
         self.queue_end_time = clock.now()

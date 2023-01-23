@@ -50,11 +50,20 @@ class Player:
             avg = self._support_mmr
         return round_int(range_limit_sr(np.random.normal(loc=avg, scale=self.GAME_TO_GAME_SD)))
 
-    def get_tank_mmr(self):
+    def get_tank_match_mmr(self):
         return self.get_match_sr(TANK)
 
-    def get_dps_mmr(self):
+    def get_dps_match_mmr(self):
         return self.get_match_sr(DPS)
 
-    def get_support_mmr(self):
+    def get_support_match_mmr(self):
         return self.get_match_sr(SUPPORT)
+
+    def get_tank_mmr(self):
+        return self._tank_mmr
+
+    def get_dps_mmr(self):
+        return self._dps_mmr
+
+    def get_support_mmr(self):
+        return self._support_mmr

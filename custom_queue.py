@@ -27,3 +27,11 @@ class CustomQueue:
         return None
 
         # return ((tank1, dps11, dps12, support11, support12), (tank2, dps21, dps22, support21, support22))
+
+    # Required
+    def tick(self):
+        """
+        Does not have to do anything, but present in case you want to handle a tick
+        :return: None
+        """
+        pass

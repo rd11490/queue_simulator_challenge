@@ -13,11 +13,11 @@ class Team:
         self.support2 = support2
 
     def average_mmr(self):
-        tank_mmr = self.tank.get_tank_mmr()
-        dps_mmr1 = self.dps1.get_dps_mmr()
-        dps_mmr2 = self.dps2.get_dps_mmr()
-        support_mmr1 = self.support1.get_support_mmr()
-        support_mmr2 = self.support1.get_support_mmr()
+        tank_mmr = self.tank.get_tank_match_mmr()
+        dps_mmr1 = self.dps1.get_dps_match_mmr()
+        dps_mmr2 = self.dps2.get_dps_match_mmr()
+        support_mmr1 = self.support1.get_support_match_mmr()
+        support_mmr2 = self.support1.get_support_match_mmr()
         mmrs = [tank_mmr, dps_mmr1, dps_mmr2, support_mmr1, support_mmr2]
         scales = [.3, .2, .15, .15, .2]
         avg_mmr = 0
