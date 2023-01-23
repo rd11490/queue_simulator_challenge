@@ -23,9 +23,11 @@ when calculating average MMR for a team. The weights are applied from lowest MMR
 
 
 ## To Run
-python run_queue.py -q BASIC
+```
+python run_queue.py -q BASIC 
 python run_queue.py -q BUCKET
 python run_queue.py -q CUSTOM  
+```
 
 ### Dumb Queue Results
 ```
