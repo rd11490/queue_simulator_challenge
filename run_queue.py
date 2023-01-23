@@ -9,7 +9,7 @@ from utilities.clock import clock
 from utilities.match import Team, Match
 from utilities.player_base import PlayerBase
 from utilities.player_in_queue import PlayerInQueue
-from utilities.dumb_queue import BasicQueue
+from utilities.basic_queue import BasicQueue
 from utilities.print_debug import print_debug
 from utilities.servers import Servers
 from optparse import OptionParser
@@ -113,6 +113,8 @@ def main():
     score = score_mmr + score_wait
 
     print(f'Score: {score} - Wait Score: {score_wait} - MMR Score: {score_mmr}')
+    print(results_desc)
+    print(wait_desc)
 
 
 

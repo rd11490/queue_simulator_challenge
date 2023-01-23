@@ -1,6 +1,7 @@
 # Overwatch Queue Simulator
 There are constantly complaints about how bad match-making is in Overwatch. I wanted to try my hand at a simple queue simulator to
-see what a baseline match maker would look like, then make continuous improvements.
+see what a baseline matchmaker would look like, then make continuous improvements. The goal is to get the lowest score possible.
+
 
 ###Assumptions:
 - Every tick of the clock is equivalent to 1 second
@@ -19,7 +20,7 @@ when calculating average MMR for a team. The weights are applied from lowest MMR
 
 - A player is randomly given a base MMR, that MMR is then expanded randomly into each individual role MMR.
 
-- A player is randomly assigned to queue for any combination possible of Tank, DPS and/or Support.
+- When a player is created, they will randomly be assigned some combination of roles (Tank, DPS, Support) that they will always queue for.
 
 
 ## To Run
@@ -55,24 +56,24 @@ max       42.000000   4981.000000   4930.000000   4916.000000
 
 ### Bucket Queue Results
 ```
-Score: 6547 - Wait Score: 3165 - MMR Score: 3382
-
+Score: 3486 - Wait Score: 3112 - MMR Score: 374
        Team 1 Estimated Probability To Win  ABS Value Probability To Win Difference  Team 1 Average MMR (weighted)  Team 2 Average MMR (weighted)  ABS MMR Difference
 count                         11317.000000                             11317.000000                   11317.000000                   11317.000000        11317.000000
-mean                              0.497315                                 0.065717                    2530.814178                    2533.661209           57.773765
-std                               0.041506                                 0.050997                     555.824993                     555.300979           44.760919
-min                               0.277235                                 0.000000                     548.350000                     578.500000            0.000000
-25%                               0.470504                                 0.026128                    2154.750000                    2160.400000           23.400000
-50%                               0.497467                                 0.054575                    2536.900000                    2541.000000           48.300000
-75%                               0.524761                                 0.094925                    2918.500000                    2915.700000           82.350000
-max                               0.743569                                 0.487137                    4325.050000                    4296.750000          473.700000
+mean                              0.499127                                 0.064575                    2525.103115                    2527.535420           18.810383
+std                               0.040817                                 0.049967                     553.146736                     552.458755           20.994311
+min                               0.317105                                 0.000000                     532.550000                     520.250000            0.000000
+25%                               0.472598                                 0.024978                    2149.750000                    2151.200000            6.550000
+50%                               0.499309                                 0.053714                    2543.350000                    2543.750000           14.000000
+75%                               0.526369                                 0.093099                    2926.100000                    2924.650000           24.500000
+max                               0.679369                                 0.365789                    4273.150000                    4254.050000          352.300000
                Wait          Tank           DPS       Support
-count  89950.000000  89950.000000  89950.000000  89950.000000
-mean      55.436876   2502.848627   2501.704158   2502.335208
-std       92.254672    575.692311    575.003954    576.134597
-min        0.000000    313.000000    220.000000    281.000000
-25%       23.000000   2112.000000   2109.000000   2109.000000
-50%       38.000000   2504.000000   2503.000000   2502.000000
-75%       64.000000   2894.000000   2897.000000   2895.000000
-max    11078.000000   4849.000000   4829.000000   4881.000000
+count  89960.000000  89960.000000  89960.000000  89960.000000
+mean      55.069086   2498.589351   2495.866074   2495.538673
+std       80.251588    577.244692    577.440827    573.807233
+min        0.000000    216.000000    192.000000    263.000000
+25%       23.000000   2108.000000   2100.000000   2102.000000
+50%       38.000000   2495.000000   2495.000000   2499.000000
+75%       65.000000   2894.000000   2895.000000   2883.000000
+max     6150.000000   4852.000000   4808.000000   4754.000000
+
 ```
