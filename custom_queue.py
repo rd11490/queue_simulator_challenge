@@ -14,7 +14,7 @@ class CustomQueue:
         """
         Put a player in the queue
         :param player_in_queue: Takes in a PlayerInQueue Instance and places them in queue
-        :return:
+        :return: None
         """
         pass
 
