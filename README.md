@@ -3,6 +3,47 @@ There are constantly complaints about how bad match-making is in Overwatch. I wa
 see what a baseline matchmaker would look like, then make continuous improvements. The goal is to get the lowest score possible.
 
 
+## Implementation 
+In order to complete this challened implement the functions in [Custom Queue](./custom_queue.py) then run the script with the Custom Queue option (`python run_queue.py -q CUSTOM  `) and check your final score against the benchmark scores from the basic queue and bucket queue.
+
+```
+class CustomQueue:
+    """
+    Update this class however you want in order to make the most efficient queue possible.
+    """
+
+    def __init__(self):
+        pass
+
+    # REQUIRED
+    def enqueue_player(self, player_in_queue):
+        """
+        Puts a player in the queue
+        :param player_in_queue: Takes in a PlayerInQueue Instance and places them in queue
+        :return: None
+        """
+        pass
+
+    # REQUIRED
+    def build_match(self):
+        """
+        The method for pulling out a group of players that would make a "balanced" game
+        :return: None or A touple of touples: ((tank1, dps11, dps12, support11, support12), (tank2, dps21, dps22, support21, support22))
+        """
+        return None
+
+        # return ((tank1, dps11, dps12, support11, support12), (tank2, dps21, dps22, support21, support22))
+
+    # REQUIRED
+    def tick(self):
+        """
+        Does not have to do anything, but present in case you want to handle a tick
+        :return: None
+        """
+        pass
+```
+
+
 ## Assumptions:
 - Every tick of the clock is equivalent to 1 second
 
